@@ -2,18 +2,25 @@
 
 
 import { Select,SelectItem } from "@nextui-org/select";
-import { px } from "framer-motion";
-import { Component } from "react";
+// 导入配置组件，获取所有语言配置
+import { lang } from "@/config/site";
 
 
 export const Lang =() => {
+
+
     return(
+            <div>
+            <Select size="md" radius="lg" className="w-40" defaultSelectedKeys={ ["js"]}>
+            {/** 用className = “w-40” 限定宽度 */}
             
-            <Select size="md" radius="lg" className="w-40">
-                {/** 用className = “w-40” 限定宽度 */}
-                <SelectItem key={"11"} >11</SelectItem>
-                <SelectItem key={"2"} >2</SelectItem>
-                <SelectItem key={"3"} >44</SelectItem>
+            {lang.map((item) =>(
+                <SelectItem key={item.value} value={item.value} > 
+                   {item.value}
+                </SelectItem>
+            ))}
+               
             </Select>
+            </div>
 )
 }
